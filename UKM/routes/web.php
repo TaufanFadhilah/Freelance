@@ -31,6 +31,7 @@ Route::get('/deleteUKM/{UKM}','UKMController@destroy')->name('delete.UKM');
 Route::get('/detailUKM/{UKM}','UKMController@show')->name('detail.UKM');
 Route::get('/profilUKM/{cat}','UKMController@profil')->name('profil.UKM');
 Route::post('/editUKM/{UKM}','UKMController@update')->name('update.UKM');
+Route::get('/isValid/{UKM}','UKMController@setValid')->name('isValid.UKM');
 
 //Marketing
 Route::post('/editMarketing/{UKM}','MarketingController@update')->name('update.Marketing');

@@ -44,7 +44,16 @@
                     </p>
                   </div>
                   <div class="list-group">
-                    <button class="btn btn-warning" data-toggle="modal" data-target="#InfoModal">Ubah informasi</button>
+                    <button class="btn btn-warning" data-toggle="modal" data-target="#InfoModal">Ubah Informasi</button>
+                    <a href="{{route('isValid.UKM',['UKM' => $datas->id])}}">
+                      <button class="btn btn-primary">
+                        @if ($datas->isValid == 0)
+                          Jadikan UKM ini VALID
+                        @else
+                          Jadikan UKM ini TIDAK VALID
+                        @endif
+                      </button>
+                    </a>
                   </div>
                   <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                     <div class="panel panel-default">

@@ -93,9 +93,21 @@ class UKMController extends Controller
         ]);
     }
 
+    public function setValid(UKM $UKM)
+    {
+
+      if ($UKM->isValid == 0) {
+        $UKM->isValid = 1;
+      }else{
+        $UKM->isValid = 0;
+      }
+      $UKM->save();
+      return redirect(route('detail.UKM',['UKM' => $UKM->id]));
+    }
+
     public function profil($cat)
     {
-      $data = UKM::where('category',$cat)->get();
+      $data = UKM::where(['category' => $cat, 'isValid' => 1])->get();
       //$data = UKM::where('category',$cat)->get();
       $profil = Estimation::first();
       if($cat == 1){
