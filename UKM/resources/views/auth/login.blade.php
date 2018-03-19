@@ -1,69 +1,57 @@
-@extends('layouts.app2')
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Pengukuran Kinerja UKM</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="author" content="Prakasam Mathaiyan">
+    <meta name="description" content="">
 
-@section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Login</div>
+    <!--[if IE]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="{{asset('plugins/lib/modernizr.js')}}"></script>
+    <link rel="icon" href="{{asset('images/favicon.png')}}" type="image/gif">
 
-                <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="{{ route('login') }}">
-                        {{ csrf_field() }}
+    <link rel="stylesheet" type="text/css" href="{{asset('plugins/bootstrap/bootstrap.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('plugins/animate-it/animate.min.css')}}">
 
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
+    <link rel="stylesheet" type="text/css" href="{{asset('css/main.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/style-default.css')}}">
+    <style>body{ color: #363A5C;}</style>
+</head>
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
+<body class="login2">
 
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
+    <!-- Login Div Start Here -->
+    <div class="login animated flipInY" id="logindiv">
+        <div class="text-center logo">
+            <h3>Pengukuran Kinerja UKM</h3>
+        </div>
 
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
+        <form class="form-horizontal" method="POST" action="{{ route('login') }}">
+            {{ csrf_field() }}
 
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-8 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Login
-                                </button>
-
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    Forgot Your Password?
-                                </a>
-                            </div>
-                        </div>
-                    </form>
+            <div class="form-group">
+                <div class="input-icon">
+                    <input type="email" class="form-control" name="email" placeholder="email@example.com">
                 </div>
             </div>
-        </div>
+
+            <div class="form-group">
+                <div class="input-icon">
+                    <input type="password" class="form-control" name="password" placeholder="Password">
+                </div>
+            </div>
+
+            <div class="clearfix">
+                <button type="submit" class="btn btn-primary pull-right">LOGIN</button>
+            </div>
+
+        </form>
+
     </div>
-</div>
-@endsection
+    <!-- Login Div Ends Here -->
+</body>
+</html>

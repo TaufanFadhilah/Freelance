@@ -5,7 +5,7 @@
         </button>
         <a class="navbar-brand" href="{{route('home')}}">
             <img src="{{asset('images/logo-w.svg')}}">
-            <span>UKM Monitoring</span>
+            <span>Pengukuran Kinerja UKM</span>
         </a>
         <ul class="nav navbar-nav-xs">  <!-- START: Responsive Top Right tool bar -->
             <li>

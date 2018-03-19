@@ -506,7 +506,7 @@
                       <tr>
                         <td>Keuntungan per bulan</td>
                         {{-- <td>Rp.{{number_format($financeProfit * $profilTotal * $profilCat / 100)}}</td> --}}
-                        <td>Rp.{{number_format($financeIncome * $profilTotal * $profilCat / 100) - number_format($financeCost * $profilTotal * $profilCat / 100)}}</td>
+                        <td>Rp.{{number_format(($financeIncome * $profilTotal * $profilCat / 100) - ($financeCost * $profilTotal * $profilCat / 100))}}</td>
                       </tr>
                     </table>
                   </div>

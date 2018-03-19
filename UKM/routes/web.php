@@ -10,40 +10,45 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Auth::routes();
+
 
 Route::get('/', function () {
     return redirect()->route('home');
 });
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::middleware(['auth'])->group(function () {
 
-//Estimation
-Route::get('/estimation','EstimationController@create')->name('Estimation');
-Route::post('/estimation/{Estimation}','EstimationController@update')->name('update.Estimation');
+  Route::get('/home', 'HomeController@index')->name('home');
 
-//UKM
-Route::get('/UKM','UKMController@index')->name('listAll.UKM');
-Route::get('/UKM/{cat}','UKMController@ShowCat')->name('list.UKM');
-Route::get('/addUKM','UKMController@create')->name('add.UKM');
-Route::post('/addUKM','UKMController@store')->name('create.UKM');
-Route::get('/deleteUKM/{UKM}','UKMController@destroy')->name('delete.UKM');
-Route::get('/detailUKM/{UKM}','UKMController@show')->name('detail.UKM');
-Route::get('/profilUKM/{cat}','UKMController@profil')->name('profil.UKM');
-Route::post('/editUKM/{UKM}','UKMController@update')->name('update.UKM');
-Route::get('/isValid/{UKM}','UKMController@setValid')->name('isValid.UKM');
+  //Estimation
+  Route::get('/estimation','EstimationController@create')->name('Estimation');
+  Route::post('/estimation/{Estimation}','EstimationController@update')->name('update.Estimation');
 
-//Marketing
-Route::post('/editMarketing/{UKM}','MarketingController@update')->name('update.Marketing');
+  //UKM
+  Route::get('/UKM','UKMController@index')->name('listAll.UKM');
+  Route::get('/UKM/{cat}','UKMController@ShowCat')->name('list.UKM');
+  Route::get('/addUKM','UKMController@create')->name('add.UKM');
+  Route::post('/addUKM','UKMController@store')->name('create.UKM');
+  Route::get('/deleteUKM/{UKM}','UKMController@destroy')->name('delete.UKM');
+  Route::get('/detailUKM/{UKM}','UKMController@show')->name('detail.UKM');
+  Route::get('/profilUKM/{cat}','UKMController@profil')->name('profil.UKM');
+  Route::post('/editUKM/{UKM}','UKMController@update')->name('update.UKM');
+  Route::get('/isValid/{UKM}','UKMController@setValid')->name('isValid.UKM');
 
-//Production
-Route::post('/editProduction/{UKM}','ProductionController@update')->name('update.Production');
+  //Marketing
+  Route::post('/editMarketing/{UKM}','MarketingController@update')->name('update.Marketing');
 
-//Value Proposition
-Route::post('/editVP/{UKM}','ValueProporsitionController@update')->name('update.VP');
+  //Production
+  Route::post('/editProduction/{UKM}','ProductionController@update')->name('update.Production');
 
-//Partner
-Route::post('/editPartner/{UKM}','PartnerController@update')->name('update.Partner');
+  //Value Proposition
+  Route::post('/editVP/{UKM}','ValueProporsitionController@update')->name('update.VP');
 
-//Finance
-Route::post('/finance/{UKM}','FinanceController@update')->name('finance.update');
+  //Partner
+  Route::post('/editPartner/{UKM}','PartnerController@update')->name('update.Partner');
+
+  //Finance
+  Route::post('/finance/{UKM}','FinanceController@update')->name('finance.update');
+
+});
+Auth::routes();
